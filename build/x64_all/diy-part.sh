@@ -14,6 +14,9 @@ svn co https://github.com/linkease/istore-ui/tree/main/app-store-ui package/stor
 # 添加ikoolproxy广告过滤
 git clone https://github.com/1wrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
 
+# 添加解除网易云音乐播放限制
+git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
+
 
 cat >$NETIP <<-EOF
 #uci set network.lan.ipaddr='192.168.1.11'                      # IPv4 地址(openwrt后台地址)
