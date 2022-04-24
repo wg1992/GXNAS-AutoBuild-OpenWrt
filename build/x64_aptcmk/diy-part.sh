@@ -15,8 +15,8 @@ svn co https://github.com/linkease/istore-ui/tree/main/app-store-ui package/stor
 git clone https://github.com/1wrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
 
 # 添加luci-app-ssr-plus
-git clone https://github.com/1wrt/luci-app-ikoolproxy.git package/luci-app-ssr-plus
-
+rm -rf package/helloworld
+git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
 
 cat >$NETIP <<-EOF
 uci set network.lan.ipaddr='192.168.1.10'                      # IPv4 地址(openwrt后台地址)
