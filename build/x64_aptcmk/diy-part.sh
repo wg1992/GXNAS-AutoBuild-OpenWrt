@@ -14,6 +14,9 @@ svn co https://github.com/linkease/istore-ui/tree/main/app-store-ui package/stor
 # 添加ikoolproxy广告过滤
 git clone https://github.com/1wrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
 
+# 添加luci-app-ssr-plus
+git clone https://github.com/1wrt/luci-app-ikoolproxy.git package/luci-app-ssr-plus
+
 
 cat >$NETIP <<-EOF
 uci set network.lan.ipaddr='192.168.1.10'                      # IPv4 地址(openwrt后台地址)
