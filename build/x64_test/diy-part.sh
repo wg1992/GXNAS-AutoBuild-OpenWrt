@@ -14,11 +14,9 @@ svn co https://github.com/linkease/istore-ui/tree/main/app-store-ui package/stor
 # 添加ikoolproxy广告过滤
 git clone https://github.com/1wrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
 
-# 添加luci-app-ssr-plus
-#sed -i "/helloworld/d" "feeds.conf.default"
-#echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
-sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+#添加kenzok8插件包
+#sed -i '$a src-git smpackage https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+
 
 # 添加解除网易云音乐播放限制
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
