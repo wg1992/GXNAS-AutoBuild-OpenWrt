@@ -15,7 +15,7 @@ svn co https://github.com/linkease/istore-ui/tree/main/app-store-ui package/stor
 git clone https://github.com/1wrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
 
 #添加kenzok8插件包
-#sed -i '$a src-git smpackage https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+git clone https://github.com/waynesg/OpenWrt-Software package/x64_test-Software
 
 
 # 添加解除网易云音乐播放限制
