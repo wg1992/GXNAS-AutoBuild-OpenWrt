@@ -11,12 +11,8 @@
 svn co https://github.com/linkease/istore/tree/main/luci/luci-app-store package/luci-app-store
 svn co https://github.com/linkease/istore-ui/tree/main/app-store-ui package/store-ui
 
-# 添加ikoolproxy广告过滤
-git clone https://github.com/1wrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
-
-# 添加luci-app-ssr-plus
-rm -rf package/helloworld
-git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
+#添加kenzok8插件包
+git clone https://github.com/waynesg/OpenWrt-Software package/x64_test-Software
 
 cat >$NETIP <<-EOF
 uci set network.lan.ipaddr='192.168.1.10'                      # IPv4 地址(openwrt后台地址)
@@ -94,16 +90,15 @@ EOF
 
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间（根据编译机型变化,自行调整需要删除的固件名称）
-cat >${GITHUB_WORKSPACE}/Clear <<-EOF
-rm -rf packages
-rm -rf config.buildinfo
-rm -rf feeds.buildinfo
-rm -rf openwrt-x86-64-generic-kernel.bin
-rm -rf openwrt-x86-64-generic.manifest
-rm -rf openwrt-x86-64-generic-squashfs-rootfs.img.gz
-rm -rf openwrt-x86-64-generic-squashfs-combined-efi.img.gz
-rm -rf ipk.tar.gz
-rm -rf sha256sums
-rm -rf version.buildinfo
-mv openwrt-x86-64-generic-squashfs-combined.img.gz OpenWrt-x64_aptcmk.img.gz
+cat >"$CLEAR_PATH" <<-EOF
+packages
+config.buildinfo
+feeds.buildinfo
+openwrt-x86-64-generic-kernel.bin
+openwrt-x86-64-generic.manifest
+openwrt-x86-64-generic-squashfs-rootfs.img.gz
+openwrt-x86-64-generic-squashfs-combined-efi.img.gz
+ipk.tar.gz
+sha256sums
+version.buildinfo
 EOF
