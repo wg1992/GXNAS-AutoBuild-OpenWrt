@@ -18,7 +18,7 @@ git clone https://github.com/1wrt/luci-app-ikoolproxy.git package/luci-app-ikool
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 
 #添加kenzok8插件包
-git clone https://github.com/waynesg/OpenWrt-Software package/x64_test-Software
+git clone https://github.com/waynesg/OpenWrt-Software package/x64_gxnas-Software
 
 
 cat >$NETIP <<-EOF
