@@ -12,7 +12,7 @@ svn co https://github.com/linkease/istore/tree/main/luci/luci-app-store package/
 svn co https://github.com/linkease/istore-ui/tree/main/app-store-ui package/store-ui
 
 #添加kenzok8插件包
-git clone https://github.com/waynesg/OpenWrt-Software package/x64_test-Software
+#git clone https://github.com/waynesg/OpenWrt-Software package/x64_test-Software
 
 cat >$NETIP <<-EOF
 uci set network.lan.ipaddr='192.168.1.11'                     # IPv4 地址(openwrt后台地址)
