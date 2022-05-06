@@ -166,13 +166,14 @@ jobs:
       run: |
         cd openwrt
         source $BUILD_PATH/common.sh && Diy_firmware
+        mv openwrt-x86-64-generic-squashfs-combined.img.gz openwrt-${{matrix.target}}-${{ env.Compile_Date }}.img.gz
         
     - name: 上传固件在 github actions
       continue-on-error: true
       if: steps.compile.outcome == 'success' && env.UPLOAD_FIRMWARE == 'true'
       uses: actions/upload-artifact@v2
       with:
-        name: OpenWrt-${{matrix.target}}-${{ env.Firmware_Date }}
+        name: OpenWrt-${{matrix.target}}-${{ env.Compile_Date }}
         path: ${{ env.FIRMWARE }}
 
     - name: 上传固件到「WeTransfer」
