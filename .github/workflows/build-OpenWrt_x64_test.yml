@@ -165,8 +165,9 @@ jobs:
       id: organizer
       run: |
         cd openwrt
+        mv bin/targets/*generic-squashfs-combined.img bin/targets/openwrt-${{matrix.target}}-${{ env.Compile_Date }}.img
         source $BUILD_PATH/common.sh && Diy_firmware
-        mv openwrt-x86-64-generic-squashfs-combined.img.gz openwrt-${{matrix.target}}-${{ env.Compile_Date }}.img.gz
+        mv bin/targets/*.img.gz bin/targets/openwrt-${{matrix.target}}-${{ env.Compile_Date }}.img.gz
         
     - name: 上传固件在 github actions
       continue-on-error: true
