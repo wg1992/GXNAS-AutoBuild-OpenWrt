@@ -214,7 +214,7 @@ jobs:
       run: |
         mkdir -p Github_Tags
         cd Github_Tags
-        wget -q --no-cookie --no-check-certificate https://api.github.com/repos/${{github.repository}}/releases/tags/AutoUpdate -O Github_Tags
+        wget -q --no-cookie --no-check-certificate https://api.github.com/repos/${{github.repository}}/releases/tags/x64_test -O Github_Tags
         
     - name: 发送[在线更新固件]至云端3
       continue-on-error: true
