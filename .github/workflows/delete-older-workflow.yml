@@ -5,15 +5,6 @@ on:
     - cron: 50 3 * * 5
 
   workflow_dispatch:
-    inputs:
-      delete-older-workflow:
-        description: '自动删除旧的工作流'
-        required: false
-        default: 'true'           #自动删除旧的工作流（true=开启）（false=关闭）
-      rele:
-        description: '保留[X]个Releases不被删除(可改)'
-        required: true
-        default: '0'
 
 jobs:
   del_runs:
@@ -21,7 +12,7 @@ jobs:
     name: delete-workflow-runs
     steps:
     
-      - name: 自动删除旧的工作流
+      - name: 删除workflow，清理旧的工作流
         uses: Mattraks/delete-workflow-runs@v2
         with:
           token: ${{ github.token }}
