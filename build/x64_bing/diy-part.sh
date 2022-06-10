@@ -11,35 +11,30 @@
 svn co https://github.com/linkease/istore/tree/main/luci/luci-app-store package/luci-app-store
 svn co https://github.com/linkease/istore-ui/tree/main/app-store-ui package/store-ui
 
-# 添加ikoolproxy广告过滤
-git clone https://github.com/1wrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
+#添加kenzok8插件包
+git clone https://github.com/waynesg/OpenWrt-Software package/x64_gxnas-Software
 
-# 添加解除网易云音乐播放限制
-git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
-
-#添加luci-app-store插件的依赖
-sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-store/Makefile
 
 cat >$NETIP <<-EOF
-uci set network.lan.ipaddr='172.16.10.1'                      # IPv4 地址(openwrt后台地址)
+uci set network.lan.ipaddr='192.168.1.11'                     # IPv4 地址(openwrt后台地址)
 uci set network.lan.netmask='255.255.255.0'                   # IPv4 子网掩码
-uci set network.lan.gateway='172.16.10.2'                     # IPv4 网关
-uci set network.lan.broadcast='172.16.10.255'                 # IPv4 广播
+uci set network.lan.gateway='192.168.1.1'                     # IPv4 网关
+#uci set network.lan.broadcast='192.168.1.255'                # IPv4 广播
 uci set network.lan.dns='223.5.5.5 114.114.114.114'           # DNS(多个DNS要用空格分开)
-uci set network.lan.delegate='0'                              # 去掉LAN口使用内置的 IPv6 管理(若用IPV6请把'0'改'1')
-uci set dhcp.@dnsmasq[0].filter_aaaa='1'                      # 禁止解析 IPv6 DNS记录(若用IPV6请把'1'改'0')
+uci set network.lan.delegate='1'                              # 去掉LAN口使用内置的 IPv6 管理(若用IPV6请把'0'改'1')
+uci set dhcp.@dnsmasq[0].filter_aaaa='0'                      # 禁止解析 IPv6 DNS记录(若用IPV6请把'1'改'0')
 
 uci set dhcp.lan.ignore='1'                                   # 关闭DHCP功能（去掉uci前面的#生效）
 uci set system.@system[0].hostname='OpenWrt-GXNAS'            # 修改主机名称为OpenWrt-123
 #uci set ttyd.@ttyd[0].command='/bin/login -f root'           # 设置ttyd免帐号登录（去掉uci前面的#生效）
 
 # 如果有用IPV6的话,可以使用以下命令创建IPV6客户端(LAN口)（去掉全部代码uci前面#号生效）
-#uci set network.ipv6=interface
-#uci set network.ipv6.proto='dhcpv6'
-#uci set network.ipv6.ifname='@lan'
-#uci set network.ipv6.reqaddress='try'
-#uci set network.ipv6.reqprefix='auto'
-#uci set firewall.@zone[0].network='lan ipv6'
+uci set network.ipv6=interface
+uci set network.ipv6.proto='dhcpv6'
+uci set network.ipv6.ifname='@lan'
+uci set network.ipv6.reqaddress='try'
+uci set network.ipv6.reqprefix='auto'
+uci set firewall.@zone[0].network='lan ipv6'
 EOF
 
 
