@@ -16,11 +16,11 @@ git clone https://github.com/waynesg/OpenWrt-Software package/x64_gxnas-Software
 
 
 cat >$NETIP <<-EOF
-uci set network.lan.ipaddr='192.168.1.11'                     # IPv4 地址(openwrt后台地址)
-uci set network.lan.netmask='255.255.255.0'                   # IPv4 子网掩码
-uci set network.lan.gateway='192.168.1.1'                     # IPv4 网关
+#uci set network.lan.ipaddr='192.168.1.1'                     # IPv4 地址(openwrt后台地址)
+#uci set network.lan.netmask='255.255.255.0'                  # IPv4 子网掩码
+#uci set network.lan.gateway='192.168.1.1'                    # IPv4 网关
 #uci set network.lan.broadcast='192.168.1.255'                # IPv4 广播
-uci set network.lan.dns='223.5.5.5 114.114.114.114'           # DNS(多个DNS要用空格分开)
+#uci set network.lan.dns='223.5.5.5 114.114.114.114'          # DNS(多个DNS要用空格分开)
 uci set network.lan.delegate='1'                              # 去掉LAN口使用内置的 IPv6 管理(若用IPV6请把'0'改'1')
 uci set dhcp.@dnsmasq[0].filter_aaaa='0'                      # 禁止解析 IPv6 DNS记录(若用IPV6请把'1'改'0')
 
@@ -63,7 +63,7 @@ sed -i "/exit 0/i\sed -i '/coremark/d' /etc/crontabs/root" "$FIN_PATH"
 
 
 # x86机型,默认内核5.15，修改内核为5.10（源码时时变,自行根据target/linux/x86/Makefile文件修改）
-#sed -i 's/PATCHVER:=5.15/PATCHVER:=5.10/g' target/linux/x86/Makefile
+sed -i 's/PATCHVER:=5.15/PATCHVER:=5.10/g' target/linux/x86/Makefile
 
 
 # K3专用，编译K3的时候只会出K3固件（其他机型也适宜,把phicomm_k3和对应路径替换一下，名字要绝对正确才行）
