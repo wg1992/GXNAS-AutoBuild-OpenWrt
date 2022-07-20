@@ -12,21 +12,23 @@ svn co https://github.com/linkease/istore/tree/main/luci/luci-app-store package/
 svn co https://github.com/linkease/istore-ui/tree/main/app-store-ui package/store-ui
 
 #添加kenzok8插件包
-git clone https://github.com/waynesg/OpenWrt-Software package/x64_test-Software
+git clone https://github.com/waynesg/OpenWrt-Software package/x64_gxnas-Software
+
+#添加helloworld插件
+rm -rf package/helloworld
+git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
 
 cat >$NETIP <<-EOF
 uci set network.lan.ipaddr='192.168.1.11'                     # IPv4 地址(openwrt后台地址)
 uci set network.lan.netmask='255.255.255.0'                   # IPv4 子网掩码
 uci set network.lan.gateway='192.168.1.1'                     # IPv4 网关
 #uci set network.lan.broadcast='192.168.1.255'                # IPv4 广播
-uci set network.lan.dns='192.168.1.251'                       # DNS(多个DNS要用空格分开)
+uci set network.lan.dns='223.5.5.5 114.114.114.114'           # DNS(多个DNS要用空格分开)
 uci set network.lan.delegate='0'                              # 去掉LAN口使用内置的 IPv6 管理(若用IPV6请把'0'改'1')
 uci set dhcp.@dnsmasq[0].filter_aaaa='1'                      # 禁止解析 IPv6 DNS记录(若用IPV6请把'1'改'0')
-
 uci set dhcp.lan.ignore='1'                                   # 关闭DHCP功能（去掉uci前面的#生效）
 uci set system.@system[0].hostname='OpenWrt-GXNAS'            # 修改主机名称为OpenWrt-123
 #uci set ttyd.@ttyd[0].command='/bin/login -f root'           # 设置ttyd免帐号登录（去掉uci前面的#生效）
-
 # 如果有用IPV6的话,可以使用以下命令创建IPV6客户端(LAN口)（去掉全部代码uci前面#号生效）
 #uci set network.ipv6=interface
 #uci set network.ipv6.proto='dhcpv6'
@@ -61,8 +63,8 @@ sed -i '/to-ports 53/d' "$ZZZ_PATH"
 sed -i "/exit 0/i\sed -i '/coremark/d' /etc/crontabs/root" "$FIN_PATH"
 
 
-# x86机型,默认内核5.15，修改内核为5.10（源码时时变,自行根据target/linux/x86/Makefile文件修改）
-#sed -i 's/PATCHVER:=5.15/PATCHVER:=5.10/g' target/linux/x86/Makefile
+# x86机型，默认内核5.15，修改内核为5.4（源码时时变,自行根据target/linux/x86/Makefile文件修改）
+sed -i 's/PATCHVER:=5.15/PATCHVER:=5.4/g' target/linux/x86/Makefile
 
 
 # K3专用，编译K3的时候只会出K3固件（其他机型也适宜,把phicomm_k3和对应路径替换一下，名字要绝对正确才行）
