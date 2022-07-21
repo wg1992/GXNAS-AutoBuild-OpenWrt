@@ -8,15 +8,13 @@
 # 如果你有编译ipv6的话，‘去掉LAN口使用内置的 IPv6 管理’代码前面也加 # 注释掉
 
 # 添加istore应用商店
-# svn co https://github.com/linkease/istore/tree/main/luci/luci-app-store package/luci-app-store
-# svn co https://github.com/linkease/istore-ui/tree/main/app-store-ui package/store-ui
+svn co https://github.com/linkease/istore/tree/main/luci/luci-app-store package/luci-app-store
+svn co https://github.com/linkease/istore-ui/tree/main/app-store-ui package/store-ui
 
 #添加kenzok8插件包
-git clone https://github.com/waynesg/OpenWrt-Software package/x64_gxnas-Software
+git clone https://github.com/waynesg/OpenWrt-Software package/x64_wjq-Software
 
-#添加helloworld插件
-rm -rf package/helloworld
-git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
+
 
 cat >$NETIP <<-EOF
 uci set network.lan.ipaddr='192.168.1.11'                     # IPv4 地址(openwrt后台地址)
@@ -63,8 +61,8 @@ sed -i '/to-ports 53/d' "$ZZZ_PATH"
 sed -i "/exit 0/i\sed -i '/coremark/d' /etc/crontabs/root" "$FIN_PATH"
 
 
-# x86机型，默认内核5.15，修改内核为5.4（源码时时变,自行根据target/linux/x86/Makefile文件修改）
-sed -i 's/PATCHVER:=5.15/PATCHVER:=5.4/g' target/linux/x86/Makefile
+# x86机型,默认内核5.15，修改内核为5.10（源码时时变,自行根据target/linux/x86/Makefile文件修改）
+#sed -i 's/PATCHVER:=5.15/PATCHVER:=5.10/g' target/linux/x86/Makefile
 
 
 # K3专用，编译K3的时候只会出K3固件（其他机型也适宜,把phicomm_k3和对应路径替换一下，名字要绝对正确才行）
