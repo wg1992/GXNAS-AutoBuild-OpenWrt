@@ -7,18 +7,11 @@
 # 如果你的OP是当主路由的话，网关、DNS、广播都不需要，代码前面加 # 注释掉，只保留后台地址和子网掩码就可以
 # 如果你有编译ipv6的话，‘去掉LAN口使用内置的 IPv6 管理’代码前面也加 # 注释掉
 
-# 添加istore应用商店
-svn co https://github.com/linkease/istore/tree/main/luci/luci-app-store package/luci-app-store
-svn co https://github.com/linkease/istore-ui/tree/main/app-store-ui package/store-ui
-
 # 添加ikoolproxy广告过滤
 git clone https://github.com/1wrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
 
 # 添加解除网易云音乐播放限制
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
-
-#添加luci-app-store插件的依赖
-sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-store/Makefile
 
 cat >$NETIP <<-EOF
 #uci set network.lan.ipaddr='192.168.1.1'                     # IPv4 地址(openwrt后台地址)
