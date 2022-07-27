@@ -8,8 +8,8 @@
 # 如果你有编译ipv6的话，‘去掉LAN口使用内置的 IPv6 管理’代码前面也加 # 注释掉
 
 # 添加istore应用商店
-svn co https://github.com/linkease/istore/tree/main/luci/luci-app-store package/luci-app-store
-svn co https://github.com/linkease/istore-ui/tree/main/app-store-ui package/store-ui
+git clone https://github.com/linkease/istore/tree/main/luci/luci-app-store package/luci-app-store
+git clone https://github.com/linkease/istore-ui/tree/main/app-store-ui package/store-ui
 
 #添加kenzok8插件包
 git clone https://github.com/waynesg/OpenWrt-Software package/x64_wjq-Software
