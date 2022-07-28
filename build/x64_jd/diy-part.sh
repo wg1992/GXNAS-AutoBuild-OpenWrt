@@ -7,8 +7,8 @@
 # 如果你的OP是当主路由的话，网关、DNS、广播都不需要，代码前面加 # 注释掉，只保留后台地址和子网掩码就可以
 # 如果你有编译ipv6的话，‘去掉LAN口使用内置的 IPv6 管理’代码前面也加 # 注释掉
 
-#更新node环境
-src-git node https://github.com/nxhack/openwrt-node-packages.git;openwrt-18.06
+#添加kenzok8插件包
+git clone https://github.com/waynesg/OpenWrt-Software package/x64_wjq-Software
 
 # 添加京东脚本
 git clone https://github.com/xdhgsq/xdh_plug.git package/jd_openwrt_script
@@ -17,16 +17,14 @@ git clone https://github.com/xdhgsq/xdh_plug.git package/jd_openwrt_script
 cat >$NETIP <<-EOF
 uci set network.lan.ipaddr='192.168.1.11'                     # IPv4 地址(openwrt后台地址)
 uci set network.lan.netmask='255.255.255.0'                   # IPv4 子网掩码
-uci set network.lan.gateway='192.168.1.250'                   # IPv4 网关
+uci set network.lan.gateway='192.168.1.1'                     # IPv4 网关
 #uci set network.lan.broadcast='192.168.1.255'                # IPv4 广播
-uci set network.lan.dns='192.168.1.251'                       # DNS(多个DNS要用空格分开)
+uci set network.lan.dns='223.5.5.5 114.114.114.114'           # DNS(多个DNS要用空格分开)
 uci set network.lan.delegate='0'                              # 去掉LAN口使用内置的 IPv6 管理(若用IPV6请把'0'改'1')
 uci set dhcp.@dnsmasq[0].filter_aaaa='1'                      # 禁止解析 IPv6 DNS记录(若用IPV6请把'1'改'0')
-
 uci set dhcp.lan.ignore='1'                                   # 关闭DHCP功能（去掉uci前面的#生效）
 uci set system.@system[0].hostname='OpenWrt-GXNAS'            # 修改主机名称为OpenWrt-123
 #uci set ttyd.@ttyd[0].command='/bin/login -f root'           # 设置ttyd免帐号登录（去掉uci前面的#生效）
-
 # 如果有用IPV6的话,可以使用以下命令创建IPV6客户端(LAN口)（去掉全部代码uci前面#号生效）
 #uci set network.ipv6=interface
 #uci set network.ipv6.proto='dhcpv6'
@@ -62,7 +60,7 @@ sed -i "/exit 0/i\sed -i '/coremark/d' /etc/crontabs/root" "$FIN_PATH"
 
 
 # x86机型,默认内核5.15，修改内核为5.10（源码时时变,自行根据target/linux/x86/Makefile文件修改）
-#sed -i 's/PATCHVER:=5.15/PATCHVER:=5.10/g' target/linux/x86/Makefile
+sed -i 's/PATCHVER:=5.15/PATCHVER:=5.4/g' target/linux/x86/Makefile
 
 
 # K3专用，编译K3的时候只会出K3固件（其他机型也适宜,把phicomm_k3和对应路径替换一下，名字要绝对正确才行）
