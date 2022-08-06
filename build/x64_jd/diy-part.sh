@@ -8,7 +8,7 @@
 # 如果你有编译ipv6的话，‘去掉LAN口使用内置的 IPv6 管理’代码前面也加 # 注释掉
 
 #添加kenzok8插件包
-git clone https://github.com/waynesg/OpenWrt-Software package/x64_wjq-Software
+#git clone https://github.com/waynesg/OpenWrt-Software package/x64_wjq-Software
 
 # 添加京东脚本
 git clone https://github.com/xdhgsq/xdh_plug.git package/jd_openwrt_script
