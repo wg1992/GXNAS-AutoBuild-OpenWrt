@@ -8,7 +8,7 @@
 # 如果你有编译ipv6的话，‘去掉LAN口使用内置的 IPv6 管理’代码前面也加 # 注释掉
 
 #添加kenzok8插件包
-#git clone https://github.com/waynesg/OpenWrt-Software package/x64_gxnas-Software
+git clone https://github.com/waynesg/OpenWrt-Software package/x64_gxnas-Software
 
 cat >$NETIP <<-EOF
 uci set network.lan.ipaddr='192.168.1.11'                     # IPv4 地址(openwrt后台地址)
