@@ -10,6 +10,9 @@
 #添加bypass插件包
 git clone https://github.com/kiddin9/openwrt-bypass package/x64_gxnas-Software
 
+#添加OpenClash插件包
+git clone https://github.com/vernesong/OpenClash package/x64_gxnas-Software
+
 cat >$NETIP <<-EOF
 #uci set network.lan.ipaddr='192.168.1.1'                     # IPv4 地址(openwrt后台地址)
 #uci set network.lan.netmask='255.255.255.0'                  # IPv4 子网掩码
