@@ -14,7 +14,6 @@ git clone https://github.com/kiddin9/openwrt-bypass package/x64_gxnas-Software
 git clone https://github.com/vernesong/OpenClash package/x64_gxnas-Software
 
 #添加mosdns插件包
-rm -rf ./feeds/packages/net/mosdns
 git clone https://github.com/sbwml/luci-app-mosdns package/x64_gxnas-Software   
 git clone https://github.com/sbwml/v2ray-geodata package/x64_gxnas-Software
 
