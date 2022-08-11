@@ -14,8 +14,10 @@ git clone https://github.com/kiddin9/openwrt-bypass package/x64_gxnas-Software
 git clone https://github.com/vernesong/OpenClash package/x64_gxnas-Software
 
 #添加mosdns插件包
-git clone https://github.com/sbwml/luci-app-mosdns package/x64_gxnas-Software   
-git clone https://github.com/sbwml/v2ray-geodata package/x64_gxnas-Software
+git clone https://github.com/QiuSimons/openwrt-mos.git package/x64_gxnas-Software  
+
+#添加ssrplus+插件包
+git clone https://github.com/fw876/helloworld.git package/x64_gxnas-Software
 
 cat >$NETIP <<-EOF
 uci set network.lan.ipaddr='192.168.1.11'                     # IPv4 地址(openwrt后台地址)
