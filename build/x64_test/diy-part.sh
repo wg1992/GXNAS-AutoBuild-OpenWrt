@@ -17,7 +17,8 @@ git clone https://github.com/vernesong/OpenClash package/x64_gxnas-Software
 git clone https://github.com/QiuSimons/openwrt-mos.git package/x64_gxnas-Software  
 
 #添加ssrplus+插件包
-git clone https://github.com/fw876/helloworld.git package/x64_gxnas-Software
+git clone https://github.com/fw876/helloworld.git package/x64_gxnas-Software/ssrplus
+sed -i '12a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' package/x64_gxnas-Software/ssrplus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 
 cat >$NETIP <<-EOF
 uci set network.lan.ipaddr='192.168.1.11'                     # IPv4 地址(openwrt后台地址)
