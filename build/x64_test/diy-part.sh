@@ -14,7 +14,7 @@
 #git clone https://github.com/kiddin9/openwrt-bypass.git package/x64_gxnas-Software
 
 #添加第三方插件包
-#git clone https://github.com/shidahuilang/openwrt-package.git package/x64_gxnas-Software
+git clone https://github.com/shidahuilang/openwrt-package.git package/x64_gxnas-Software
 
 cat >$NETIP <<-EOF
 uci set network.lan.ipaddr='192.168.1.11'                     # IPv4 地址(openwrt后台地址)
