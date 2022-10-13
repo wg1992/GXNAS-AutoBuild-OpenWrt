@@ -8,13 +8,11 @@
 # 如果你有编译ipv6的话，‘去掉LAN口使用内置的 IPv6 管理’代码前面也加 # 注释掉
 
 #添加unblockneteasemusic插件包
-#git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/x64_gxnas-Software
+git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/x64_gxnas-Software
 
 #添加bypass插件包
-#git clone https://github.com/kiddin9/openwrt-bypass.git package/x64_gxnas-Software
+git clone https://github.com/kiddin9/openwrt-bypass.git package/x64_gxnas-Software
 
-#添加第三方插件包
-git clone https://github.com/shidahuilang/openwrt-package.git package/x64_gxnas-Software
 
 cat >$NETIP <<-EOF
 uci set network.lan.ipaddr='192.168.1.11'                     # IPv4 地址(openwrt后台地址)
