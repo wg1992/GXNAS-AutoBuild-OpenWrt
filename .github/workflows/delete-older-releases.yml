@@ -8,12 +8,12 @@ on:
 
 jobs:
   del_releases:
-    runs-on: Ubuntu-20.04
+    runs-on: Ubuntu-22.04
     name: delete-releases-runs
     steps:
     
       - name: 删除releases，清理旧版本
-        uses: dev-drprasad/delete-older-releases@master
+        uses: dev-drprasad/delete-older-releases@v0.2.0
         with:
           repo: ${{ github.repository }}
           keep_latest: 0
