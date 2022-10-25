@@ -7,24 +7,8 @@
 # 如果你的OP是当主路由的话，网关、DNS、广播都不需要，代码前面加 # 注释掉，只保留后台地址和子网掩码就可以
 # 如果你有编译ipv6的话，‘去掉LAN口使用内置的 IPv6 管理’代码前面也加 # 注释掉
 
-#添加unblockneteasemusic插件包
-git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/x64_gxnas-Software
-
-#添加bypass插件包
-git clone https://github.com/kiddin9/openwrt-bypass.git package/x64_gxnas-Software
-
-#添加OpenClash插件包
-git clone https://github.com/vernesong/OpenClash.git package/x64_gxnas-Software
-
-#添加mosdns插件包
-git clone https://github.com/QiuSimons/openwrt-mos.git package/x64_gxnas-Software  
-
-#添加ssrplus+插件包
-git clone https://github.com/fw876/helloworld.git package/x64_gxnas-Software/ssrplus
-sed -i '12a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' package/x64_gxnas-Software/ssrplus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
-
 cat >$NETIP <<-EOF
-uci set network.lan.ipaddr='192.168.7.3'                     # IPv4 地址(openwrt后台地址)
+uci set network.lan.ipaddr='192.168.7.3'                      # IPv4 地址(openwrt后台地址)
 uci set network.lan.netmask='255.255.255.0'                   # IPv4 子网掩码
 uci set network.lan.gateway='192.168.7.1'                     # IPv4 网关
 #uci set network.lan.broadcast='192.168.1.255'                # IPv4 广播
