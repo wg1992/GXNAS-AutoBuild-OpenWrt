@@ -8,7 +8,7 @@
 # 如果你有编译ipv6的话，‘去掉LAN口使用内置的 IPv6 管理’代码前面也加 # 注释掉
 
 cat >$NETIP <<-EOF
-uci set network.lan.ipaddr='192.168.7.2'                      # IPv4 地址(openwrt后台地址)
+uci set network.lan.ipaddr='192.168.7.3'                      # IPv4 地址(openwrt后台地址)
 uci set network.lan.netmask='255.255.255.0'                   # IPv4 子网掩码
 uci set network.lan.gateway='192.168.7.1'                     # IPv4 网关
 #uci set network.lan.broadcast='192.168.1.255'                # IPv4 广播
