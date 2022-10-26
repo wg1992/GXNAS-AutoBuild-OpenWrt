@@ -16,7 +16,7 @@ on:
     branches:
       - main
     paths:
-      - '-config-'
+      - 'build/x64/start-up/start'
 
 env:
   Github: https://github.com/${{github.repository}}
@@ -40,7 +40,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [x64,P&W_zly,P&W_ply]
+        target: [x64]
         
         # [Lede_source,Lienol_source,Mortal_source,Tianling_source,openwrt_amlogic]
 
