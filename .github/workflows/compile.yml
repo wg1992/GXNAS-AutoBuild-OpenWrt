@@ -16,7 +16,7 @@ on:
     branches:
       - main
     paths:
-      - 'build/p2w__zly/start-up/start'
+      - 'build/p2w__ply/start-up/start'
 
 env:
   Github: https://github.com/${{github.repository}}
@@ -40,7 +40,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [p2w__zly]
+        target: [p2w__ply]
         
         # [Lede_source,Lienol_source,Mortal_source,Tianling_source,openwrt_amlogic]
 
