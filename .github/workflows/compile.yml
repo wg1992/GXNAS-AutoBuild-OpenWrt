@@ -40,7 +40,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [Lede_source]
+        target: [x64,P&W_zly,P&W_ply]
         
         # [Lede_source,Lienol_source,Mortal_source,Tianling_source,openwrt_amlogic]
 
