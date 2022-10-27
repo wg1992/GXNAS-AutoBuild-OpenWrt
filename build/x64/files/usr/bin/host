@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/sh
 # 删除
 sed -i '/# ING Hosts Start/,/# ING Hosts End/d' /etc/hosts
 # 添加
